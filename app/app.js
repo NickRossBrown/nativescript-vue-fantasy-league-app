@@ -1,6 +1,6 @@
 import Vue from "nativescript-vue";
 
-import Home from "./components/Home";
+import Home from "./components/members/Index";
 
 new Vue({
 

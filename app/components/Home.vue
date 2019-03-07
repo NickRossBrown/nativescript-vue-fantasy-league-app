@@ -12,36 +12,27 @@
                     <Span :text="message"/>
                 </FormattedString>
             </Label>
-            <StackLayout col="0" row="1" orientation="horizontal"
-                backgroundColor="#FFFFFF" height="60">
-                <GridLayout rows="*" columns="*,*,*,*,*">
-                    <Image col="0" row="0" @tap="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
-                    <Image col="1" row="0" @tap="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
-                    <Image col="2" row="0" @tap="onButtonTap()" height="60"
-                        width="60" margin="10" src="~/assets/icons/nav-home.png"></Image>
-                    <Image col="3" row="0" @tap="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
-                    <Image col="4" row="0" @tap="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
-                </GridLayout>
-            </StackLayout>
+            <Navbar></Navbar>
         </GridLayout>
     </Page>
 </template>
 
 <script>
+    import Navbar from './shared/Navbar'
+
     export default {
         computed: {
             message() {
-                return "Blank {N}-Vue app";
+                return "league announcements here";
             }
         },
         methods: {
 			onButtonTap() {
 				console.log("Button was pressed");
 			},
+        },
+        components: {
+            Navbar
         }
     };
 </script>

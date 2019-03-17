@@ -1,21 +1,12 @@
 <template>
     <Page class="page">
 
-        <ActionBar backgroundColor="#44557f" flat="true">
+        <!-- <ActionBar backgroundColor="#44557f" flat="true">
             <StackLayout orientation="vertical" width="100%" height="5%"
                 backgroundColor="#44557f">
-                <!-- <StackLayout backgroundColor="#44557f">
-                    <StackLayout #searchRow orientation="horizontal"
-                        marginTop="5">
-                        <TextField backgroundColor="white" paddingLeft="20"
-                            borderRadius="20" v-model="textFieldValue" width="80%"
-                            height="40" fontSize="14" hint="Search"></TextField>
-                        <Image src="~/assets/icons/nav-users.png" height="30"
-                            width="30" marginLeft="10"></Image>
-                    </StackLayout>
-                </StackLayout> -->
+    
             </StackLayout>
-        </ActionBar>
+        </ActionBar> -->
 
 
         <GridLayout orientation="vertical" width="100%" height="100%" columns="*"
@@ -323,18 +314,21 @@
 
             <StackLayout col="0" row="1" orientation="horizontal"
                 backgroundColor="#FFFFFF" height="60">
-                <GridLayout rows="*" columns="*,*,*,*,*">
-                    <Image col="0" row="0" (tap)="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-users.png"></Image>
-                    <Image col="1" row="0" (tap)="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-users.png"></Image>
-                    <Image col="2" row="0" (tap)="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-users.png"></Image>
-                    <Image col="3" row="0" (tap)="onButtonTap()" height="25"
-                        width="25" margin="10" src="~/assets/icons/nav-users.png"></Image>
-                    <Image col="4" row="0" (tap)="onButtonTap()" height="60"
-                        width="60" margin="10" src="~/assets/icons/nav-users.png"></Image>
-                </GridLayout>
+                <StackLayout col="0" row="1" orientation="horizontal"
+				backgroundColor="#FFFFFF" height="60">
+					<GridLayout rows="*" columns="*,*,*,*,*">
+						<Image col="0" row="0" @tap="navToMembers()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-users.png"></Image>
+						<Image col="1" row="0" @tap="onButtonTap()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-stats.png"></Image>
+						<Image col="2" row="0" @tap="navToHome()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
+						<Image col="3" row="0" @tap="onButtonTap()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-file-text.png"></Image>
+						<Image col="4" row="0" @tap="onButtonTap()" height="40"
+							width="40" margin="10" src="~/assets/icons/nav-music.png"></Image>
+					</GridLayout>
+				</StackLayout>
             </StackLayout>
 
         </GridLayout>
@@ -342,6 +336,8 @@
 </template>
 <script>
     import Details from "./Details";
+    import Members from '../members/Index'
+    import Home from "../Home";
 
     export default {
         computed: {},
@@ -360,7 +356,26 @@
                         curve: "easeIn"
                     }
                 });
-            }
+            },
+            navToMembers() {
+				console.log("navToMembers Button was pressed");
+				this.$navigateTo(Members, {
+					transition: {
+						name: "slideLeft",
+						duration: 250,
+						curve: "easeIn"
+					}
+				});
+			},
+            navToHome() {
+				this.$navigateTo(Home, {
+					transition: {
+						name: "slideLeft",
+						duration: 250,
+						curve: "easeIn"
+					}
+				});
+			},
         }
     };
 </script>

@@ -42,10 +42,23 @@
 					</StackLayout>
 				</FlexboxLayout>
 			</StackLayout>
-			<!-- <Navbar /> -->
+
 			<StackLayout col="0" row="1" orientation="horizontal" height="60" >
-				<Label>test</Label>
-                <!-- <Navbar></Navbar> -->
+				<StackLayout col="0" row="1" orientation="horizontal"
+				backgroundColor="#FFFFFF" height="60">
+					<GridLayout rows="*" columns="*,*,*,*,*">
+						<Image col="0" row="0" height="50"
+							width="50" margin="10" src="~/assets/icons/nav-users.png"></Image>
+						<Image col="1" row="0" @tap="onButtonTap()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-stats.png"></Image>
+						<Image col="2" row="0" @tap="navToHome()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-home.png"></Image>
+						<Image col="3" row="0" @tap="onButtonTap()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-file-text.png"></Image>
+						<Image col="4" row="0" @tap="navToPodcasts()" height="25"
+							width="25" margin="10" src="~/assets/icons/nav-music.png"></Image>
+					</GridLayout>
+				</StackLayout>
             </StackLayout>
 		</GridLayout>
 	</Page>
@@ -53,8 +66,9 @@
 
 <script>
 	import Member from "./Member";
+	import Home from "../Home";
+	import Podcasts from '~/components/podcast/Index.vue'
 	import Card from "./Card";
-	import Navbar from "../shared/Navbar"
 
 	const platform = require("tns-core-modules/platform");
 
@@ -137,12 +151,29 @@
 
 			getScroll(e) {
 				this.active = Math.round(e.scrollX / 344);
+			},
+			navToPodcasts() {
+				this.$navigateTo(Podcasts, {
+					transition: {
+						name: "slideLeft",
+						duration: 250,
+						curve: "easeIn"
+					}
+				});
+			},
+			navToHome() {
+				this.$navigateTo(Home, {
+					transition: {
+						name: "slideLeft",
+						duration: 250,
+						curve: "easeIn"
+					}
+				});
 			}
 		},
 
 		components: {
-			Card,
-			Navbar
+			Card
 		}
 	};
 </script>

@@ -1,5 +1,9 @@
 <template>
-	<Page class="page" actionBarHidden="true">
+	<Page class="page">
+		<ActionBar class="action-bar" backgroundColor="black">
+            <Label class="action-bar-title" text="Members"></Label>
+        </ActionBar>
+
 		<GridLayout orientation="vertical" width="100%" height="100%" columns="*"
             rows="*,auto">
 			<StackLayout id="overview">

@@ -1,12 +1,9 @@
 <template>
     <Page class="page">
 
-        <!-- <ActionBar backgroundColor="#44557f" flat="true">
-            <StackLayout orientation="vertical" width="100%" height="5%"
-                backgroundColor="#44557f">
-    
-            </StackLayout>
-        </ActionBar> -->
+        <ActionBar backgroundColor="black">
+            <Label class="action-bar-title" color="white" text="Fantasy Podcasts"></Label>
+        </ActionBar>
 
 
         <GridLayout orientation="vertical" width="100%" height="100%" columns="*"
@@ -15,16 +12,8 @@
             <StackLayout col="0" row="0" backgroundColor="#f8f8f8">
                 <StackLayout backgroundColor="#44557f" paddingBottom="15"
                     marginTop="-10">
-                    <Label text="Fantasy Podcasts" class="font-weight-bold"
-                        color="#FFFFFF" padding="15" fontSize="24"></Label>
-                </StackLayout>
-
-                <StackLayout paddingLeft="20" paddingRight="20" paddingTop="20"
-                    paddingBottom="5" marginTop="-20" backgroundImage="~/assets/media/placeholder1.jpeg"
-                    borderRadius="5" height="180" width="90%"
-                    stretch="aspectFit" class="album-image">
-                    <GridLayout columns="*" rows="auto,*,auto" height="100%">
-
+                    <!-- <Label text="Fantasy Podcasts" class="font-weight-bold"
+                        color="#FFFFFF" padding="15" fontSize="24"></Label> -->
                         <GridLayout columns="auto,*,auto" rows="auto,auto"
                             col="0" row="2" marginBottom="5">
                             <Label col="0" row="0" class="font-weight-bold"
@@ -32,9 +21,6 @@
                             <Label col="0" row="1" class="font-weight-bold"
                                 fontSize="16" color="#FFFFFF" text="By Ethan Waite"></Label>
                         </GridLayout>
-
-                    </GridLayout>
-
                 </StackLayout>
 
                 <ScrollView orientation="vertical">
@@ -383,6 +369,7 @@
 <style scoped>
     ActionBar {
         background-color: transparent;
+
     }
 
     .album-image {
@@ -404,4 +391,5 @@
     #searchRow {
         margin-top: 20;
     }
+    
 </style>

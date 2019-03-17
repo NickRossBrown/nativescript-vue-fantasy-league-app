@@ -1,5 +1,9 @@
 <template>
-    <Page class="page" actionBarHidden="true">
+    <Page class="page">
+        <ActionBar class="action-bar" backgroundColor="black">
+            <Label class="action-bar-title" :text="member.name"></Label>
+        </ActionBar>
+
         <GridLayout orientation="vertical" width="100%" height="100%" columns="*"
             rows="*,auto">
             <StackLayout orientation="vertical">
@@ -63,14 +67,14 @@
             </StackLayout>
 
             <StackLayout col="0" row="1" orientation="horizontal" height="60" >
-                <Navbar></Navbar>
+     
             </StackLayout>
         </GridLayout>
     </Page>
 </template>
 
 <script>
-    import Navbar from "../shared/Navbar";
+    
 
     export default {
         props: {

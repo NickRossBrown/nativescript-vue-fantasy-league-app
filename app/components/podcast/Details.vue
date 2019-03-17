@@ -1,15 +1,13 @@
 <template>
 	<Page class="page"  backgroundSpanUnderStatusBar="false">
 
-		<ActionBar backgroundColor="#44557f" flat="true">
-            <StackLayout orientation="vertical" width="100%" height="5%"
-                backgroundColor="#44557f">
-            </StackLayout>
+		<ActionBar class="action-bar" backgroundColor="black">
+            <Label class="action-bar-title" text="Podcast List"></Label>
         </ActionBar>
 		<!-- <ActionBar flat="true" backgroundColor="#FFFFFF" color="#000000">
 		</ActionBar> -->
 
-		<GridLayout orientation="vertical" width="100%" height="100%" columns="*" rows="*,auto" :marginTop='isIOS ? "-20" : ""'>
+		<GridLayout orientation="vertical" width="100%" height="100%" columns="*" rows="*,auto" >
 
 			<StackLayout col="0" row="0" backgroundColor="#f8f8f8">
 				<GridLayout id="detail-page-background" columns="*" rows="auto,*,auto" height="200">

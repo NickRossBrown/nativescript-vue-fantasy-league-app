@@ -1,51 +1,60 @@
 <template>
 	<Page class="page" actionBarHidden="true">
-		<StackLayout id="overview">
-			<FlexboxLayout flexDirection="column" height="100%" width="100%">
-				<StackLayout flexGrow="1" id="view">
-					<FlexboxLayout flexDirection="column" maxHeight="100%">
-						<StackLayout orientation="vertical" margin="0 50 0">
-							<Label textWrap="true" text="League Members" class="h1 extra-bold"/>
-							<Label
-								textWrap="true"
-								text="scroll to view them all"
-								class="h3 description-label semi-bold"
-							/>
-						</StackLayout>
-						<ScrollView
-							orientation="horizontal"
-							marginTop="24"
-							height="calc(100% - 50)"
-							v-on:scroll="getScroll"
-							ref="list"
-						>
-							<WrapLayout
-								orientation="horizontal"
-								:paddingLeft="((width-344)/2)+8"
-								:paddingRight="((width-344)/2)-8"
-								paddingBottom="8"
-							>
-								<Card
-									v-for="(member,index) in members"
-									:key="index"
-									:member="member"
-									:index="index"
-									:active="active"
-									width="344"
-									height="515"
+		<GridLayout orientation="vertical" width="100%" height="100%" columns="*"
+            rows="*,auto">
+			<StackLayout id="overview">
+				<FlexboxLayout flexDirection="column" height="100%" width="100%">
+					<StackLayout flexGrow="1" id="view">
+						<FlexboxLayout flexDirection="column" maxHeight="100%">
+							<StackLayout orientation="vertical" margin="0 50 0">
+								<Label textWrap="true" text="League Members" class="h1 extra-bold"/>
+								<Label
+									textWrap="true"
+									text="scroll to view them all"
+									class="h3 description-label semi-bold"
 								/>
-							</WrapLayout>
-						</ScrollView>
-					</FlexboxLayout>
-				</StackLayout>
-			</FlexboxLayout>
-		</StackLayout>
+							</StackLayout>
+							<ScrollView
+								orientation="horizontal"
+								marginTop="24"
+								height="calc(100% - 50)"
+								v-on:scroll="getScroll"
+								ref="list"
+							>
+								<WrapLayout
+									orientation="horizontal"
+									:paddingLeft="((width-344)/2)+8"
+									:paddingRight="((width-344)/2)-8"
+									paddingBottom="8"
+								>
+									<Card
+										v-for="(member,index) in members"
+										:key="index"
+										:member="member"
+										:index="index"
+										:active="active"
+										width="344"
+										height="515"
+									/>
+								</WrapLayout>
+							</ScrollView>
+						</FlexboxLayout>
+					</StackLayout>
+				</FlexboxLayout>
+			</StackLayout>
+			<!-- <Navbar /> -->
+			<StackLayout col="0" row="1" orientation="horizontal" height="60" >
+				<Label>test</Label>
+                <!-- <Navbar></Navbar> -->
+            </StackLayout>
+		</GridLayout>
 	</Page>
 </template>
 
 <script>
 	import Member from "./Member";
 	import Card from "./Card";
+	import Navbar from "../shared/Navbar"
 
 	const platform = require("tns-core-modules/platform");
 
@@ -132,7 +141,8 @@
 		},
 
 		components: {
-			Card
+			Card,
+			Navbar
 		}
 	};
 </script>

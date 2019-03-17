@@ -1,6 +1,5 @@
 <template>
-	<StackLayout col="0" row="1" orientation="horizontal" height="60" class="navbar">
-		<GridLayout rows="*" columns="*,*,*,*,*">
+		<GridLayout rows="*" columns="*,*,*,*,*" class="navbar">
 			<Image
 				col="0"
 				row="0"
@@ -40,30 +39,38 @@
 			<Image
 				col="4"
 				row="0"
-				@tap="onButtonTap()"
+				@tap="navToPodcast()"
 				height="35"
 				width="25"
 				margin="10"
 				src="~/assets/icons/nav-music.png"
 			></Image>
 		</GridLayout>
-	</StackLayout>
+	
 </template>
 
 <script>
-    import Members from '../members/Index'
+    import Members from '~/components/members/Index.vue'
+    import Podcast from '~/components/podcast/Index.vue'
+	
+
 	export default {
-		computed: {
-			message() {
-				return "Blank {N}-Vue app";
-			}
-		},
 		methods: {
 			onButtonTap() {
 				console.log("Button was pressed");
 			},
 			navToMembers() {
+				console.log("navToMembers Button was pressed");
 				this.$navigateTo(Members, {
+					transition: {
+						name: "slideLeft",
+						duration: 250,
+						curve: "easeIn"
+					}
+				});
+			},
+			navToPodcast() {
+				this.$navigateTo(Podcast, {
 					transition: {
 						name: "slideLeft",
 						duration: 250,

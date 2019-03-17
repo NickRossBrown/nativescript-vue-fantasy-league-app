@@ -12,21 +12,18 @@
                     <Span :text="message"/>
                 </FormattedString>
             </Label>
-
-            <StackLayout col="0" row="1" orientation="horizontal" height="60" >
-                <Navbar></Navbar>
-            </StackLayout>
+            <Navbar></Navbar>
         </GridLayout>
     </Page>
 </template>
 
 <script>
-    import Navbar from './shared/Navbar'
+    import Navbar from '../shared/Navbar'
 
     export default {
         computed: {
             message() {
-                return "league announcements here";
+                return "podcast page";
             }
         },
         methods: {
@@ -41,13 +38,10 @@
 </script>
 
 <style scoped lang="scss">
-    // Start custom common variables
-    @import '../app-variables';
-    // End custom common variables
 
     // Custom styles
     .fa {
-        color: $accent-dark;
+        color: black;
     }
 
     .info {

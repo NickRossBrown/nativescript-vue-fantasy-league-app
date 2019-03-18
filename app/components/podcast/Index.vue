@@ -37,7 +37,7 @@
 
                         <ScrollView orientation="horizontal">
                             <StackLayout orientation="horizontal">
-                                <StackLayout margin="10">
+                                <StackLayout margin="10" @tap="openPlayer()">
                                     <StackLayout class="album-image" height="110"
                                         width="125" backgroundImage="~/assets/media/placeholder2.jpg"
                                         borderRadius="5">
@@ -324,6 +324,7 @@
     import Details from "./Details";
     import Members from '../members/Index'
     import Home from "../Home";
+    import Player from "./Player"
 
     export default {
         computed: {},
@@ -335,6 +336,17 @@
             onButtonTap() {},
             showDetails() {
                 this.$navigateTo(Details, {
+                    animated: true,
+                    transition: {
+                        name: "slideLeft",
+                        duration: 250,
+                        curve: "easeIn"
+                    }
+                });
+            },
+            openPlayer() {
+                console.log("navToPlayer Button was pressed");
+                this.$navigateTo(Player, {
                     animated: true,
                     transition: {
                         name: "slideLeft",

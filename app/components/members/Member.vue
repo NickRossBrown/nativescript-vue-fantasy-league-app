@@ -1,68 +1,80 @@
 <template>
-    <Page class="page" actionBarHidden="true">
-        <StackLayout orientation="vertical">
-            <AbsoluteLayout width="100%" height="100%">
-                <FlexboxLayout flexDirection="column" height="100%" width="100%"
-                    id="member">
-     
-                    <StackLayout width="100%" height="25" flexGrow="7">
-                        <ScrollView orientation="vertical">
-                            <StackLayout orientation="vertical">
-                                <StackLayout orientation="vertical" class="head">
-                                    <Label :text="member.name" class="title bold" />
-                                    <Label :text="member.motto" class="subTitle semi-bold" />
-                                    <Label class="subTitle semi-bold">Best Finnish: {{ member.bestFinnish }} </Label>
+    <Page class="page">
+        <ActionBar class="action-bar" backgroundColor="black">
+            <Label class="action-bar-title" :text="member.name"></Label>
+        </ActionBar>
 
-                                    <FlexboxLayout flexDirection="row" height="12"
-                                        marginTop="4">
-                                        <Image src="~/assets/icons/Star-Red.png"
-                                            v-for="star in member.stars" :key="star"
-                                            marginRight="4" />
-                                        <Image src="~/assets/icons/Star-grey.png"
-                                            v-for="star in (5 - member.stars)"
-                                            marginRight="4" :key="(star * 10)" />
-                                    </FlexboxLayout>
-                                </StackLayout>
-                                <AbsoluteLayout width="100%" height="210">
-                                    <StackLayout id="sstar" top="0" left="0" :height="(210 - 20)"
-                                        width="100%" :backgroundImage="'~/assets/media/' + member.media" class="image">
+        <GridLayout orientation="vertical" width="100%" height="100%" columns="*"
+            rows="*,auto">
+            <StackLayout orientation="vertical">
+                <AbsoluteLayout width="100%" height="100%">
+                    <FlexboxLayout flexDirection="column" height="100%" width="100%"
+                        id="member">
+        
+                        <StackLayout width="100%" height="25" flexGrow="7">
+                            <ScrollView orientation="vertical">
+                                <StackLayout orientation="vertical">
+                                    <StackLayout orientation="vertical" class="head">
+                                        <Label :text="member.name" class="title bold" />
+                                        <Label :text="member.motto" class="subTitle semi-bold" />
+                                        <Label class="subTitle semi-bold">Best Finnish: {{ member.bestFinnish }} </Label>
+
+                                        <FlexboxLayout flexDirection="row" height="12"
+                                            marginTop="4">
+                                            <Image src="~/assets/icons/Star-Red.png"
+                                                v-for="star in member.stars" :key="star"
+                                                marginRight="4" />
+                                            <Image src="~/assets/icons/Star-grey.png"
+                                                v-for="star in (5 - member.stars)"
+                                                marginRight="4" :key="(star * 10)" />
+                                        </FlexboxLayout>
                                     </StackLayout>
-                                    <StackLayout orientation="horizontal"
-                                        height="40" class="actions" width="100%">
-                                        <AbsoluteLayout width="40" height="40"
-                                            class="ac-btn" id="star">
-                                            <Image src="~/assets/icons/Star-White.png"
-                                                width="15" height="15" left="12.5"
-                                                top="12.5" />
-                                        </AbsoluteLayout>
-                                        <AbsoluteLayout width="40" height="40"
-                                            class="ac-btn" id="plus">
-                                            <Image src="~/assets/icons/Plus.png"
-                                                width="15" height="15" left="12.5"
-                                                top="12.5" />
-                                        </AbsoluteLayout>
+                                    <AbsoluteLayout width="100%" height="210">
+                                        <StackLayout id="sstar" top="0" left="0" :height="(210 - 20)"
+                                            width="100%" :backgroundImage="'~/assets/media/' + member.media" class="image">
+                                        </StackLayout>
+                                        <StackLayout orientation="horizontal"
+                                            height="40" class="actions" width="100%">
+                                            <AbsoluteLayout width="40" height="40"
+                                                class="ac-btn" id="star">
+                                                <Image src="~/assets/icons/Star-White.png"
+                                                    width="15" height="15" left="12.5"
+                                                    top="12.5" />
+                                            </AbsoluteLayout>
+                                            <AbsoluteLayout width="40" height="40"
+                                                class="ac-btn" id="plus">
+                                                <Image src="~/assets/icons/Plus.png"
+                                                    width="15" height="15" left="12.5"
+                                                    top="12.5" />
+                                            </AbsoluteLayout>
+                                        </StackLayout>
+                                    </AbsoluteLayout>
+                                    <StackLayout id="pplus" orientation="vertical" class="text">
+                                        <Label text="Lorem ipsum" class="title bold" />
+                                        <TextView editable="false" marginBottom="25"
+                                            class="desc semi-bold" padding="0">
+                                            <FormattedString>
+                                                <Span :text="lorem" />
+                                            </FormattedString>
+                                        </TextView>
                                     </StackLayout>
-                                </AbsoluteLayout>
-                                <StackLayout id="pplus" orientation="vertical" class="text">
-                                    <Label text="Lorem ipsum" class="title bold" />
-                                    <TextView editable="false" marginBottom="25"
-                                        class="desc semi-bold" padding="0">
-                                        <FormattedString>
-                                            <Span :text="lorem" />
-                                        </FormattedString>
-                                    </TextView>
                                 </StackLayout>
-                            </StackLayout>
-                        </ScrollView>
-                    </StackLayout>
-                  
-                </FlexboxLayout>
-            </AbsoluteLayout>
-        </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    
+                    </FlexboxLayout>
+                </AbsoluteLayout>
+            </StackLayout>
+
+            <StackLayout col="0" row="1" orientation="horizontal" height="60" >
+     
+            </StackLayout>
+        </GridLayout>
     </Page>
 </template>
 
 <script>
+    
 
     export default {
         props: {
